@@ -159,8 +159,8 @@ void AtomSandboxedRendererClient::DidCreateScriptContext(
     v8::Handle<v8::Context> context, content::RenderFrame* render_frame) {
 
   // Only allow preload for the main frame
-  if (!render_frame->IsMainFrame())
-    return;
+  //if (!render_frame->IsMainFrame())
+  //  return;
 
   base::CommandLine* command_line = base::CommandLine::ForCurrentProcess();
   std::string preload_script = command_line->GetSwitchValueASCII(
@@ -201,8 +201,8 @@ void AtomSandboxedRendererClient::WillReleaseScriptContext(
     v8::Handle<v8::Context> context, content::RenderFrame* render_frame) {
 
   // Only allow preload for the main frame
-  if (!render_frame->IsMainFrame())
-    return;
+  //if (!render_frame->IsMainFrame())
+  //  return;
 
   auto isolate = context->GetIsolate();
   v8::HandleScope handle_scope(isolate);
