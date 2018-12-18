@@ -166,7 +166,7 @@ void AtomSandboxedRendererClient::DidCreateScriptContext(
 
   // Only allow preload for the main frame or
   // For devtools we still want to run the preload_bundle script
-  if (!render_frame->IsMainFrame() && !IsDevTools(render_frame))
+  if (/* !render_frame->IsMainFrame() && */ !IsDevTools(render_frame))
     return;
 
   auto* isolate = context->GetIsolate();
@@ -197,8 +197,8 @@ void AtomSandboxedRendererClient::WillReleaseScriptContext(
     v8::Handle<v8::Context> context,
     content::RenderFrame* render_frame) {
   // Only allow preload for the main frame
-  if (!render_frame->IsMainFrame())
-    return;
+  //if (!render_frame->IsMainFrame())
+  //  return;
 
   auto* isolate = context->GetIsolate();
   v8::HandleScope handle_scope(isolate);

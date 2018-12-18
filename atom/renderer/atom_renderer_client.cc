@@ -84,7 +84,7 @@ void AtomRendererClient::DidCreateScriptContext(
 
   // Only allow node integration for the main frame, unless it is a devtools
   // extension page.
-  if (!render_frame->IsMainFrame() && !IsDevToolsExtension(render_frame))
+  if (/* !render_frame->IsMainFrame() && */ !IsDevToolsExtension(render_frame))
     return;
 
   // Don't allow node integration if this is a child window and it does not have
