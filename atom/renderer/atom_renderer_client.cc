@@ -84,8 +84,9 @@ void AtomRendererClient::DidCreateScriptContext(
 
   // Only allow node integration for the main frame, unless it is a devtools
   // extension page.
-  if (/* !render_frame->IsMainFrame() && */ !IsDevToolsExtension(render_frame))
-    return;
+  // NOTE: This is removed for our iframe fix - dan 12/20/2018
+  //if ( !render_frame->IsMainFrame() && !IsDevToolsExtension(render_frame))
+  //  return;
 
   // Don't allow node integration if this is a child window and it does not have
   // node integration enabled.  Otherwise we would have memory leak in the child
